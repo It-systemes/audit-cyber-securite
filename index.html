@@ -160,7 +160,24 @@ transition: all 0.2s ease-in-out;
 transform: translateY(-2px);
 filter: brightness(1.08);
 }
+/* Steps sans numéros : on supprime la colonne 44px */
+.steps--no-numbers .step {
+  display: block;                     /* casse la grille 44px + 1fr */
+  padding: 16px 20px;
+}
 
+.steps--no-numbers .step .n { 
+  display: none;                      /* au cas où il resterait un .n */
+}
+
+.steps--no-numbers .step + .step {
+  margin-top: 12px;                   /* petit spacing entre items */
+}
+
+/* Sécurité typographique si une URL très longue s'invite */
+.steps .step { 
+  overflow-wrap: anywhere;            /* évite les mots qui débordent */
+}
 </style>
 </head>
 
@@ -313,13 +330,13 @@ filter: brightness(1.08);
   <div class="container">
     <h2>Pourquoi réaliser un audit de sécurité ?</h2>
     <p class="lead">Un processus simple et rapide, pensé pour limiter l'effort côté équipe.</p>
-    <div class="steps" style="margin-top:18px;">
-      <div class="step"><div>80 % des incidents de sécurité sont liés à des failles dans l’Active Directory (source Microsoft 2022).</div></div>
-      <div class="step"><div>98 % des environnements utilisent encore d’anciens protocoles d’authentification vulnérables.</div></div>
-      <div class="step"><div>84 % des entreprises recourent à des algorithmes de hachage dépassés.</div></div>
-      <div class="step"><div>100 % des organisations auditées n’utilisent pas de postes d’administration dédiés et sécurisés (PAW).</div></div>
-      <div class="step"><div>L’Active Directory et Entra ID sont les cibles privilégiées des cyberattaquants, car une compromission d’un seul compte “Domain Admin” peut donner un contrôle total sur tout le système d’information.</div></div>
-    </div>
+    <div class="steps steps--no-numbers" style="margin-top:18px;">
+  <div class="step"><div>80 % des incidents de sécurité sont liés à des failles dans l’Active Directory (source Microsoft 2022).</div></div>
+  <div class="step"><div>98 % des environnements utilisent encore d’anciens protocoles d’authentification vulnérables.</div></div>
+  <div class="step"><div>84 % des entreprises recourent à des algorithmes de hachage dépassés.</div></div>
+  <div class="step"><div>100 % des organisations auditées n’utilisent pas de postes d’administration dédiés et sécurisés (PAW).</div></div>
+  <div class="step"><div>L’Active Directory et Entra ID sont les cibles privilégiées des cyberattaquants, car une compromission d’un seul compte “Domain Admin” peut donner un contrôle total sur tout le système d’information.</div></div>
+  </div>
   </div>
 
   <div class="container" style="margin-top:40px;">
@@ -335,8 +352,6 @@ filter: brightness(1.08);
 <div class="step"><div class="n">6</div><div>Livrables opérationnels : rapport complet + atelier de restitution avec vos équipes.</div></div>
     </div>
   </div>
-  
-  
 </section>
 
 <section id="benefices" class="section">
@@ -436,8 +451,8 @@ alert('Merci ! Votre demande a bien été envoyée.');
 });
 </script>
 </body>
-
 </html>
+
 
 
 
