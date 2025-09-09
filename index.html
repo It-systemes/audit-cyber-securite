@@ -178,6 +178,20 @@ filter: brightness(1.08);
 .steps .step { 
   overflow-wrap: anywhere;            /* évite les mots qui débordent */
 }
+
+/* Grille à 2 colonnes */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* espace entre les cartes */
+}
+
+/* Responsive : sur mobile on passe en une seule colonne */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 
@@ -452,6 +466,7 @@ alert('Merci ! Votre demande a bien été envoyée.');
 </script>
 </body>
 </html>
+
 
 
 
